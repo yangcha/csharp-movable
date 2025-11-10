@@ -1,6 +1,10 @@
 ﻿namespace Movable
 {
-
+    /// <summary>
+    /// A wrapper that provides move semantics for IDisposable resources.
+    /// </summary>
+    /// <typeparam name="TResource">The type of the value to wrap.</typeparam>
+    /// <param name="resource">Resource to wrap.</param>
     public sealed class MoveDisposable<TResource>(TResource resource) : IDisposable where TResource : class, IDisposable
     {
         private const string invalidMoveMessage = "Resource has already been moved.";
